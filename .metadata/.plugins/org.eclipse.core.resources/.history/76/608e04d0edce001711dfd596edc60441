@@ -1,0 +1,8 @@
+package DefaultNamespace;
+
+public class StockExchangePlusClientApp {
+	public static void main(String[] args) throws Exception {
+		StockExchangePlus stockExchangePlus = new StockExchangePlusServiceLocator().getStockExchangePlus();
+		System.out.println(stockExchangePlus.getAveragePrice("IBM"));
+	}
+}

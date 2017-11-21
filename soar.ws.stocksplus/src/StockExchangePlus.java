@@ -1,3 +1,4 @@
+
 import soar.ws.calculator.Calculator;
 import soar.ws.calculator.CalculatorServiceLocator;
 import soar.ws.stockexchange.StockExchangeServiceLocator;

@@ -1,0 +1,5 @@
+package soar.ws.stockexchange;
+
+public class StockExchangeClientApp {
+
+}

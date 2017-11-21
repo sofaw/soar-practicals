@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/soar/ws/calculator/Calculator.java=UTF-8
+encoding//src/soar/ws/calculator/CalculatorService.java=UTF-8
+encoding//src/soar/ws/calculator/CalculatorServiceLocator.java=UTF-8
+encoding//src/soar/ws/calculator/CalculatorSoapBindingStub.java=UTF-8
+encoding//src/soar/ws/stockexchange/StockPrice.java=UTF-8

@@ -1,1 +1,5 @@
 127.0.0.1 - - [21/Nov/2017:17:57:00 +0000] "GET / HTTP/1.1" 404 1070
+127.0.0.1 - - [21/Nov/2017:18:15:28 +0000] "GET / HTTP/1.1" 404 1070
+127.0.0.1 - - [21/Nov/2017:18:15:28 +0000] "POST /soar.ws.calculator/services/AdminService HTTP/1.0" 200 291
+127.0.0.1 - - [21/Nov/2017:18:15:28 +0000] "POST /soar.ws.calculator/services/AdminService HTTP/1.0" 200 4238
+127.0.0.1 - - [21/Nov/2017:18:16:47 +0000] "POST /soar.ws.calculator/services/Calculator HTTP/1.1" 200 376

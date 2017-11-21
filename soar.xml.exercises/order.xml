@@ -1,0 +1,15 @@
+<order id="5">
+	<item quantity="1">
+		<product id="115123" name="Logitech K120 Keyboard" unitPrice="7.99"/>
+	</item>
+	<item quantity="1">
+		<product id="155234" name="Sharkoon Fireglider Laser Mouse" unitPrice="22.04"/>
+	</item>
+	<item quantity="2">
+		<product id="776441" name="SanDisk 16GB Cruzer Blade USB Flash Drive" unitPrice="7.94"/>
+	</item>
+	<deliveryAddress number="1" postcode="YO10 5GH"/>
+	<customer name="Jane Doe">
+		<address number="1" postcode="YO10 5GH"/>
+	</customer>
+</order>

@@ -1,0 +1,13 @@
+module calculator {
+	typedef sequence<long> Longs;
+	struct ApplicationInfo {
+		long version;
+		string description;
+	};
+
+	interface Calculator {
+		long add(in long x, in long y);
+		Longs getNext(in long base, in long howMany);
+		ApplicationInfo getApplicationInfo();
+	};
+};

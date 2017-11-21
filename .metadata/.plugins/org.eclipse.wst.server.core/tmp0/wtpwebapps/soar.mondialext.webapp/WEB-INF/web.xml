@@ -1,0 +1,15 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+	<servlet>
+		<display-name>KnowYourNeighboursServlet</display-name>
+		<servlet-name>KnowYourNeighboursServlet</servlet-name>
+		<servlet-class>soar.mondialext.webapp.KnowYourNeighboursServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>KnowYourNeighboursServlet</servlet-name>
+		<url-pattern>/neighbours/*</url-pattern>
+	</servlet-mapping>
+</web-app>

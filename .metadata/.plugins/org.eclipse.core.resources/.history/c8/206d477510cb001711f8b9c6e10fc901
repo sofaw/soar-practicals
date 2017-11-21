@@ -1,0 +1,11 @@
+<servlet>
+<description></description>
+<display-name>KnowYourNeighboursServlet</display-name>
+<servlet-name>KnowYourNeighboursServlet</servlet-name>
+<servlet-class>soar.mondialext.webapp.KnowYourNeighboursServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>KnowYourNeighboursServlet</servlet-name>
+<url-pattern>/neighbours/*</url-pattern>
+</servlet-mapping>
+<servlet>

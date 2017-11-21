@@ -1,0 +1,69 @@
+package soar.messaging.minim.client;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.DeliveryMode;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
+import javax.jms.MessageProducer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+import javax.jms.Topic;
+
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+public class MinimClient extends MinimClientBase {
+		
+	protected Session session;
+	protected Topic messagesTopic = null;
+	
+	public static void main(String[] args) throws Exception {
+		MinimClient client = new MinimClient();
+		client.run(args);
+	}
+	
+	public void run(String[] args) throws Exception {
+		super.run(args);	
+		
+		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(getServerURI());
+		Connection connection = connectionFactory.createConnection();
+		connection.start();
+		session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
+		createMessagesTopic();
+	}
+	
+	protected void createMessagesTopic() throws Exception {
+		messagesTopic = session.createTopic("messages");
+		MessageConsumer consumer = session.createConsumer(messagesTopic);
+		ClientMessageListener listener = new ClientMessageListener();
+		consumer.setMessageListener(listener);
+	}
+
+	@Override
+	public void sendInstantMessage(InstantMessage instantMessage) {
+		try {
+			TextMessage message = session.createTextMessage(instantMessage.getMessage() + "|" + instantMessage.getSender());
+			MessageProducer producer = session.createProducer(messagesTopic);
+			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+			producer.send(message);
+		} catch (JMSException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	class ClientMessageListener implements MessageListener {
+		@Override
+		public void onMessage(Message message) {
+			TextMessage textMsg = (TextMessage) message;
+			String[] parsedMsg;
+			try {
+				parsedMsg = textMsg.getText().split("|");
+				displayInstantMessage(new InstantMessage(parsedMsg[0], parsedMsg[1]));
+			} catch (JMSException e) {
+				e.printStackTrace();
+			}		
+		}
+	}
+}

@@ -1,0 +1,22 @@
+package soar.messaging.minim.server;
+
+import java.net.InetAddress;
+
+import javax.jms.Topic;
+import javax.jms.Session;
+
+import org.apache.activemq.broker.BrokerService;
+
+public class MinimServer {
+	protected Topic messagesTopic = null;
+	protected static Session session = null;
+	
+	
+	public static void main(String[] args) throws Exception {
+		BrokerService broker = new BrokerService();
+		broker.setUseJmx(true);
+		broker.addConnector("tcp://" + InetAddress.getLocalHost().getHostAddress() + ":61616");
+		broker.start();
+		System.err.println("Minim server running on: " + InetAddress.getLocalHost().getHostAddress());
+	}
+}

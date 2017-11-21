@@ -1,0 +1,51 @@
+package soar.messaging.minim.server;
+
+import java.net.InetAddress;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
+import javax.jms.Topic;
+import javax.jms.Session;
+
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.broker.BrokerService;
+
+public class MinimServer {
+	protected Topic messagesTopic = null;
+	protected Session session = null;
+	
+	
+	public static void main(String[] args) throws Exception {
+		BrokerService broker = new BrokerService();
+		broker.setUseJmx(true);
+		broker.addConnector("tcp://" + InetAddress.getLocalHost().getHostAddress() + ":61616");
+		broker.start();
+		System.err.println("Minim server running on: " + InetAddress.getLocalHost().getHostAddress());
+	
+	}
+	
+	protected void createMessagesTopic() throws Exception {
+
+		messagesTopic = session.createTopic("messages");
+		
+		// Add a new message listener
+		MessageConsumer consumer = session.createConsumer(messagesTopic);
+		ServerMessageListener listener = new ServerMessageListener();
+		consumer.setMessageListener(listener);
+	}
+	
+	class ServerMessageListener implements MessageListener {
+
+		@Override
+		public void onMessage(Message message) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+}

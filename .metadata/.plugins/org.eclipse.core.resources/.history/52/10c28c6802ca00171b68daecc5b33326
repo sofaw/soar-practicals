@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">	
+
+	<xs:element name="order" type="OrderType"/>
+	
+	<xs:complexType name="OrderType">	
+		<xs:sequence>	
+			<xs:element maxOccurs="unbounded" name="item" type="ItemType"/>	
+			<xs:element maxOccurs="1" name="deliveryAddress" type="AddressType"/>
+			<xs:element maxOccurs="1" name="customer" type="CustomerType"/>
+		</xs:sequence>	
+		</xs:complexType>
+</xs:schema>

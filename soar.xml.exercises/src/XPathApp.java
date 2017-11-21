@@ -1,0 +1,75 @@
+
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+public class XPathApp {
+	
+	public static void main(String[] args) throws Exception {
+		new XPathApp().run();
+	}
+	
+	public void run() throws Exception {
+		
+		Document document = null;
+		
+		try {
+			document = parse("order.xml");
+		}
+		catch (Exception ex) {
+			System.err.println("Could not parse XML document: " + ex.getLocalizedMessage());
+			System.exit(1);
+		}
+	
+		System.out.println(totalNumberOfItemsXPath(document));
+		
+	}
+	
+	public int totalNumberOfItemsXPath(Document doc) throws Exception {
+		// Create a new XPath evaluator
+		XPath xpath = XPathFactory.newInstance().newXPath();
+		
+		// Get the result as a string
+		String xpathResult = xpath.evaluate("sum(//@quantity)", doc.getDocumentElement());
+		
+		// Cast the result to an integer
+		return Integer.parseInt(xpathResult);
+	}
+	
+	public int totalNumberOfPagesJava(Document doc) throws Exception {
+		
+		Element catalogue = doc.getDocumentElement();
+		int total = 0;
+		
+		for (Element book : toElementList(catalogue.getElementsByTagName("book")))  {
+			String pages = book.getAttribute("pages");
+			if (pages.length() > 0) {
+				total += Integer.parseInt(pages);
+			}
+		}
+		
+		return total;
+	}
+	
+	
+	protected ArrayList<Element> toElementList(NodeList nodeList) {
+		ArrayList<Element> list = new ArrayList<Element>();
+		for (int i=0;i<nodeList.getLength();i++) {
+			list.add((Element)nodeList.item(i));
+		}
+		return list;
+	}
+	
+	protected Document parse(String filename) throws Exception {
+		return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new FileInputStream(new File(filename)));
+	}
+}

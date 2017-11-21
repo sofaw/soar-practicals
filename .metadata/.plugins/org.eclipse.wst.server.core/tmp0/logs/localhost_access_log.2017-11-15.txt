@@ -1,0 +1,13 @@
+127.0.0.1 - - [15/Nov/2017:23:22:46 +0000] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:22:48 +0000] "GET /soar.mondialext.webapp/KnowYourNeighboursServlet HTTP/1.1" 200 34
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:22:48 +0000] "GET /favicon.ico HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:25:03 +0000] "GET /soar.mondialext.webapp/KnowYourNeighboursServlet?country=Andorra HTTP/1.1" 200 13
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:27:28 +0000] "GET /soar.mondialext.webapp/KnowYourNeighboursServlet?country=Andorra HTTP/1.1" 200 328
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:27:41 +0000] "GET /soar.mondialext.webapp/KnowYourNeighboursServlet?country=France HTTP/1.1" 200 930
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:30:48 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 404 1111
+127.0.0.1 - - [15/Nov/2017:23:31:00 +0000] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:31:02 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 404 1111
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:31:04 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 404 1111
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:31:16 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 404 1111
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:31:42 +0000] "GET /soar.mondialext.webapp/KnowYourNeighboursServlet?country=France HTTP/1.1" 404 1118
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:32:11 +0000] "GET /soar.mondialext.webapp/KnowYourNeighboursServlet?country=France HTTP/1.1" 200 930

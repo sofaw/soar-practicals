@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">	
+
+	<xs:element name="order" type="OrderType"/>
+	
+	<xs:complexType name="OrderType">	
+		<xs:sequence>	
+			<xs:element maxOccurs="unbounded" name="item" type="ItemType"/>	
+			<xs:element maxOccurs="1" name="deliveryAddress" type="AddressType"/>
+			<xs:element maxOccurs="1" name="customer" type="CustomerType"/>
+		</xs:sequence>	
+	</xs:complexType>
+	
+	<xs:complexType name="ItemType">
+		<xs:sequence>
+			<xs:element name="product" type="ProductType"/>
+		</xs:sequence>
+		<xs:attribute name="quantity" type="xs:positiveInteger"/>	
+	</xs:complexType>
+
+	<xs:complexType name="AddressType">
+		<xs:attribute name="number" type="xs:positiveInteger"/>
+		<xs:attribute name="postcode" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:complexType name="CustomerType">
+		<xs:sequence>
+			<xs:element name="address" type="AddressType"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:simpleType name="ProductIdType">	
+		<xs:restriction base="xs:integer">	
+			<xs:totalDigits fixed="true" value="6"/>
+		</xs:restriction>	
+	</xs:simpleType>
+	
+	<xs:complexType name="ProductType">
+		<xs:attribute name="id" type="ProductIdType"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="unitPrice" type="xs:double"/>
+	</xs:complexType>
+
+
+</xs:schema>

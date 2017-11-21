@@ -1,0 +1,7 @@
+127.0.0.1 - - [16/Nov/2017:20:56:32 +0000] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [16/Nov/2017:20:56:44 +0000] "GET /soar.mondialext.webapp/Kn HTTP/1.1" 404 1095
+0:0:0:0:0:0:0:1 - - [16/Nov/2017:20:56:52 +0000] "GET /soar.mondialext.webapp/neighbours HTTP/1.1" 200 100
+0:0:0:0:0:0:0:1 - - [16/Nov/2017:20:57:00 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 200 100
+0:0:0:0:0:0:0:1 - - [16/Nov/2017:20:57:18 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 200 100
+127.0.0.1 - - [16/Nov/2017:21:00:47 +0000] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [16/Nov/2017:21:00:48 +0000] "GET /soar.mondialext.webapp/neighbours/Andorra HTTP/1.1" 200 328

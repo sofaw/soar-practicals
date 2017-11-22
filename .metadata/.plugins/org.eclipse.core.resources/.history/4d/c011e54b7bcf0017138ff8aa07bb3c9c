@@ -1,0 +1,81 @@
+package soar.ws.knowyourneighbours;
+
+import java.io.ByteArrayOutputStream;
+import java.net.URL;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+public class KnowYourNeighbours {
+	public String getNeighbours(String country) throws Exception {
+		String api = "https://www-users.cs.york.ac.uk/~dkolovos/apps/mondial";
+		String countryUrl = api + "/country/" + country;
+		
+		Document countryDocument = parse(countryUrl);
+		Element countryElement = countryDocument.getDocumentElement();
+		
+		Document countryWithNeighboursDocument = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+		Element countryRoot = countryWithNeighboursDocument.createElement("country");
+		countryRoot.setAttribute("name", country);
+		countryWithNeighboursDocument.appendChild(countryRoot);
+		
+		Element neighboursRoot = countryWithNeighboursDocument.createElement("neighbours");
+		countryRoot.appendChild(neighboursRoot);
+		
+		ArrayList<Element> neighbours = toElementList(countryDocument.getDocumentElement().getElementsByTagName("neighbour"));
+		for(Element neighbour : neighbours) {
+			String neighbourUrl = api + "/country/" + neighbour.getAttribute("country");
+			Document neighbourDocument = parse(neighbourUrl);
+			Element neighbourSrc = neighbourDocument.getDocumentElement();
+			Element neighbourSink = countryWithNeighboursDocument.createElement("country");
+			neighbourSink = copyElement(neighbourSrc, neighbourSink);
+			neighboursRoot.appendChild(neighbourSink);
+		}
+		return toXml(countryWithNeighboursDocument);
+	}
+	
+	public Element copyElement(Element src, Element sink) {
+		NamedNodeMap atts = src.getAttributes();
+		for(int i = 0; i < atts.getLength(); i++) {
+			String attName = atts.item(i).getNodeName();
+			sink.setAttribute(attName, src.getAttribute(attName));
+		}
+		return sink;
+	}
+	
+protected Document parse(String url) throws Exception {
+		
+		return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new URL(url.replace(" ", "%20")).openStream());
+	}
+
+	protected String toXml(Node node) throws Exception {
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+		DOMSource source = new DOMSource(node);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		StreamResult result = new StreamResult(baos);
+		transformer.transform(source, result);
+		return baos.toString();
+	}
+	
+	protected ArrayList<Element> toElementList(NodeList nodeList) {
+		ArrayList<Element> list = new ArrayList<Element>();
+		for (int i=0;i<nodeList.getLength();i++) {
+			list.add((Element)nodeList.item(i));
+		}
+		return list;
+	}
+}

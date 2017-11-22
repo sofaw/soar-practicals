@@ -12,6 +12,8 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/sophie/Downloads/soar.ws.mondial.client"/>
+			<item value="/Users/sophie/Downloads/soar.ws.mondial"/>
 			<item value="/Users/sophie/Downloads/soar.mondial"/>
 			<item value="/Users/sophie/Downloads/soar.xml.namespaces"/>
 			<item value="/Users/sophie/Downloads/soar.xsdxpath"/>
@@ -23,6 +25,11 @@
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 		</list>
 	</section>
 </section>

@@ -1,0 +1,12 @@
+package soar.ws.knowyourneighbours;
+
+import javax.xml.rpc.ServiceException;
+
+public class KnowYourNeighboursApp {
+	public static void main(String[] args) throws Exception {
+		KnowYourNeighbours knowYourNeighbours = 
+				new KnowYourNeighboursServiceLocator().getKnowYourNeighbours();
+		
+		System.out.println(knowYourNeighbours.getNeighbours("France"));
+	}
+}

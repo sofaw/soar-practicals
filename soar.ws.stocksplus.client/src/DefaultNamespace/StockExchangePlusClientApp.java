@@ -1,5 +1,7 @@
 package DefaultNamespace;
 
+import java.net.URL;
+
 import org.apache.axis.EngineConfiguration;
 import org.apache.axis.configuration.FileProvider;
 
@@ -9,7 +11,8 @@ public class StockExchangePlusClientApp {
 				.getResourceAsStream("stockexchangeplusclient.wsdd"));
 		
 		StockExchangePlusSoapBindingStub stub = (StockExchangePlusSoapBindingStub)
-				new StockExchangePlusServiceLocator(config).getStockExchangePlus();
+				new StockExchangePlusServiceLocator(config).getStockExchangePlus(
+						new URL("http://localhost:8280/services/StockExchangePlusProxy"));
 		
 		stub.setUsername("joe");
 		

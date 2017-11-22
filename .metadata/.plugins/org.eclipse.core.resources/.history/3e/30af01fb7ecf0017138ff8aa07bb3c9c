@@ -1,0 +1,19 @@
+package soar.ws.knowyourneighbours;
+
+import javax.xml.rpc.ServiceException;
+
+import org.apache.axis.EngineConfiguration;
+import org.apache.axis.configuration.FileProvider;
+
+public class KnowYourNeighboursApp {
+	public static void main(String[] args) throws Exception {
+		EngineConfiguration config = new FileProvider(
+				KnowYourNeighboursApp.class.getResourceAsStream("knowyourneighboursclient.wsdd"));
+		KnowYourNeighboursBindingStub stub = 
+				new KnowYourNeighboursServiceLocator(config).getKnowYourNeighbours();
+		
+		stub.setUsername("joe");
+		
+		System.out.println(stub.getNeighbours("France"));
+	}
+}

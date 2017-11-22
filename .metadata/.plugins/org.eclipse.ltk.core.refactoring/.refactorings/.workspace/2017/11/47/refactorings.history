@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;soar.knowyourneighbours&apos; to &apos;soar.ws.knowyourneighbours&apos;" description="Rename resource &apos;soar.knowyourneighbours&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/soar.knowyourneighbours" name="soar.ws.knowyourneighbours" stamp="1511351342332" updateReferences="true"/>
+</session>

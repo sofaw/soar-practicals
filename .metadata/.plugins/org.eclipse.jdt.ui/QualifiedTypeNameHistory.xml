@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="calculator.CalculatorPOA"/>
 <fullyQualifiedTypeName name="calculator.ApplicationInfo"/>
 <fullyQualifiedTypeName name="java.awt.Desktop"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.io.File"/>
@@ -23,4 +22,14 @@
 <fullyQualifiedTypeName name="javax.jms.MessageProducer"/>
 <fullyQualifiedTypeName name="javax.jms.DeliveryMode"/>
 <fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
+<fullyQualifiedTypeName name="soar.ws.stockexchange.StockPrice"/>
+<fullyQualifiedTypeName name="soar.ws.calculator.Calculator"/>
+<fullyQualifiedTypeName name="soar.ws.stockexchange.StockExchangeServiceLocator"/>
+<fullyQualifiedTypeName name="soar.ws.calculator.CalculatorServiceLocator"/>
+<fullyQualifiedTypeName name="org.apache.ws.security.WSPasswordCallback"/>
+<fullyQualifiedTypeName name="javax.security.auth.callback.Callback"/>
+<fullyQualifiedTypeName name="javax.security.auth.callback.CallbackHandler"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="javax.security.auth.callback.UnsupportedCallbackException"/>
+<fullyQualifiedTypeName name="org.apache.axis.EngineConfiguration"/>
 </qualifiedTypeNameHistroy>

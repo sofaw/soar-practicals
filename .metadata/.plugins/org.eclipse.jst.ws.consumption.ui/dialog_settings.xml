@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.jst.ws.client.type.java">
+		<item value="http://localhost:8080/soar.ws.stocksplus/services/StockExchangePlus?wsdl"/>
+		<item value="http://www-users.cs.york.ac.uk/~dkolovos/apps/stocks/?wsdl"/>
+		<item value="http://localhost:8080/soar.ws.calculator/services/Calculator?wsdl"/>
+	</list>
+</section>
